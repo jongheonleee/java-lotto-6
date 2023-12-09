@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class LottoMachine {
-
     private final Generator generator;
 
     public LottoMachine(Generator generator) {
