@@ -61,7 +61,7 @@ public class WinnerLotto {
     }
 
 
-    private Boolean isDuplicatedBetweenWinnerNumbersAndBonusNumber(List<Integer> numbers, Integer bonusNumber) {
+    private Boolean isDuplicatedBetweenWinnerNumbersAndBonusNumber(List<Integer> winnerNumbers, Integer bonusNumber) {
         return winnerNumbers.contains(bonusNumber);
     }
 
