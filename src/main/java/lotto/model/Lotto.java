@@ -1,21 +1,19 @@
 package lotto.model;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Lotto {
-
     private static final Integer START_RANGE = 1;
     private static final Integer END_RANGE = 45;
     private static final Integer LENGTH = 6;
     private static final Integer INIT_SIZE = 0;
-
     private static final String LEFT_BRACKET = "[";
     private static final String RIGHT_BRACKET = "]";
 
     private static final String COMMA = ",";
-
     private static final String SPACE = " ";
     private final List<Integer> numbers;
     private final StringBuilder lottoBuilder;
@@ -38,8 +36,6 @@ public class Lotto {
         if (isDuplicatedNumber(numbers)) {
             throw new IllegalArgumentException("[ERROR] 중복된 숫자가 있습니다.");
         }
-
-
     }
 
     private Boolean isAllowedNumbers(List<Integer> numbers) {
@@ -85,5 +81,4 @@ public class Lotto {
     private void initBuilder() {
         lottoBuilder.setLength(INIT_SIZE);
     }
-
 }
