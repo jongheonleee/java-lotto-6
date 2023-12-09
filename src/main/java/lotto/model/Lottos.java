@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Lottos {
     private static final Integer INIT_SIZE = 0;
-
     private static final String ENTER = "\n";
     private final List<Lotto> lottos;
     private final StringBuilder lottosBuilder;
