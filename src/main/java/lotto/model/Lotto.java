@@ -12,7 +12,6 @@ public class Lotto {
     private static final Integer INIT_SIZE = 0;
     private static final String LEFT_BRACKET = "[";
     private static final String RIGHT_BRACKET = "]";
-
     private static final String COMMA = ",";
     private static final String SPACE = " ";
     private final List<Integer> numbers;
