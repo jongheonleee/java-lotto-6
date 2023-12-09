@@ -24,7 +24,9 @@ public enum LottoResult {
 
     public static LottoResult of(Integer hitNumber, Boolean isBonus) {
         return Arrays.stream(LottoResult.values())
-                .filter(lottoResult -> hitNumber == lottoResult.hitNumber && isBonus == lottoResult.isBonus)
+                .filter(lottoResult ->
+                        hitNumber == lottoResult.hitNumber
+                        && isBonus == lottoResult.isBonus)
                 .findFirst()
                 .orElse(LOSER);
     }
