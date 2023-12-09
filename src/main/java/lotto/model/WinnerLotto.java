@@ -72,13 +72,14 @@ public class WinnerLotto {
                 .size();
     }
 
-    private Boolean isHitBonusNumber(List<Integer> numbers) {
+    private Boolean isBonusNumber(List<Integer> numbers) {
         return numbers.stream()
                 .anyMatch(number -> number == bonusNumber);
     }
 
-//    이 부분 추후에 업데이트
-//    public LottoResult calculateLottoResult(List<Integer> numbers) {
-//        return
-//    }
+    public LottoResult calculateLottoResult(List<Integer> numbers) {
+        Integer hitNumber = countHitNumber(numbers);
+        Boolean isBonus = isBonusNumber(numbers);
+        return LottoResult.of(hitNumber, isBonus);
+    }
 }

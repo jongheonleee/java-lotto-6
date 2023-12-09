@@ -27,6 +27,15 @@ class WinnerLottoTest {
                 () -> new WinnerLotto(winnerNumbers, bonusNumber));
     }
 
+    @DisplayName("로또 결과 계산 테스트")
+    @MethodSource("calculateLottoResultTestDummy")
+    @ParameterizedTest
+    void calculateLottoResultTest(List<Integer> winnerNumbers, Integer bonusNumber, List<Integer> lotto, LottoResult expected) {
+        WinnerLotto winnerLotto = new WinnerLotto(winnerNumbers, bonusNumber);
+        LottoResult result = winnerLotto.calculateLottoResult(lotto);
+        assertEquals(expected, result);
+    }
+
     static Stream<Arguments> createWinnerLottoExceptionTestDummy() {
         return Stream.of(
                 // 1. 당첨 번호 잘못 입력한 경우
@@ -80,6 +89,35 @@ class WinnerLottoTest {
                 Arguments.of(
                         List.of(1, 2, 3, 4, 5, 6),
                         25
+                )
+        );
+    }
+
+    static Stream<Arguments> calculateLottoResultTestDummy() {
+        return Stream.of(
+                Arguments.of(
+                        List.of(1, 2, 3, 4, 5, 6),
+                        10,
+                        List.of(1, 2, 3, 4, 5, 6),
+                        LottoResult.FIRST_PLACE
+                ),
+                Arguments.of(
+                        List.of(1, 2, 3, 4, 5, 6),
+                        20,
+                        List.of(1, 2, 3, 4, 5, 20),
+                        LottoResult.SECOND_PLACE
+                ),
+                Arguments.of(
+                        List.of(1, 2, 3, 4, 5, 6),
+                        15,
+                        List.of(1, 2, 3, 4, 5, 45),
+                        LottoResult.THIRD_PLACE
+                ),
+                Arguments.of(
+                        List.of(1, 2, 3, 4, 5, 6),
+                        25,
+                        List.of(1, 2, 40, 41, 42, 43),
+                        LottoResult.LOSER
                 )
         );
     }
