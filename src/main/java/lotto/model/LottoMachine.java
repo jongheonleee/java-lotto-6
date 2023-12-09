@@ -12,7 +12,7 @@ public class LottoMachine {
         this.generator = generator;
     }
 
-    private List<Lotto> purchaseLotto(Integer count) {
+    public List<Lotto> purchaseLotto(Integer count) {
         List<Lotto> lottoDummy = new ArrayList<>();
         for (int i=0; i<count; i++) {
             List<Integer> numbers = generateLottoNumbers();
